@@ -37,18 +37,18 @@ int main(void)
     printf("length: %i \n", count);
 
     //every other number from second to last.
-    long long int temp2 = cc;
+    
+    long long int temp2 = cc/10;
+    a = 0;
     int sum = 0;
-
- do
+    
+    do
     {
-        temp2 = cc / 10;
-        a = (temp2 % 10);
-        a = a * 2;
+        temp2 = cc / 100;
+        a = temp2 % 10;
         sum = sum + a;
     }
-    while(a >= 0);
-    printf(" a: %d \n", a);
-    printf("sum: %i, \n", sum);
+    while(temp2 >= 0);
+    printf("%i \n", a);
 
 }
