@@ -12,6 +12,7 @@ int main(void)
     long long int cc;
     long long int cctemp1;
     int count;
+    int a;
 
      // prompt
     do
@@ -34,9 +35,20 @@ int main(void)
         count++;
     }
     printf("length: %i \n", count);
-    
+
     //every other number from second to last.
-    
-    
+    long long int temp2 = cc;
+    int sum = 0;
+
+ do
+    {
+        temp2 = cc / 10;
+        a = (temp2 % 10);
+        a = a * 2;
+        sum = sum + a;
+    }
+    while(a >= 0);
+    printf(" a: %d \n", a);
+    printf("sum: %i, \n", sum);
 
 }
