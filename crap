@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+int main(void)
+{
+    //variables
+    // long long int amex;
+    // long long int MC;
+    // long long int Visa;
+    // long long int invalid;
+    long long int cc;
+    long long int cctemp1;
+    int count;
+
+     // prompt
+    do
+    {
+        cc = get_long_long("Enter Credit Card Number ");
+    }
+    while (cc < 0);
+
+    cctemp1 = cc;
+
+    printf("cc: %lli \n", cc);
+
+    //length of cc number
+    cctemp1 = cc;
+
+    count = 0;
+    while(cctemp1 != 0)
+    {
+        cctemp1 = cctemp1/10;
+        count++;
+    }
+    printf("length: %i \n", count);
+    
+    //every other number from second to last.
+    
+    
+
+}
