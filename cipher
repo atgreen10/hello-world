@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+//variable
+int k;
+int q;
+
+
+int main (int argc, string argv[])
+{
+    // sets the key for encryption
+    if (argc == 2)
+    {
+        string key = argv[1];
+        printf ("Key: %s\n", key);
+    }
+
+    //quits program with bad input
+    else
+    {
+        printf("Ya done messed up...\n");
+        return 1;
+    }
+
+    // turns key to an integer
+    k = atoi(argv[1]);
+    if (k <= 0)
+    {
+        printf("Can Not Be Negative Number");
+    }
+    else
+    {
+        printf("key as int: %i \n", k);
+    }
+
+    //plaintext input and length
+    string str = get_string ("Message:  ");
+    int length = strlen(str);
+    printf("%i \n",length);
+
+    int i = str[0];
+    for (i = 0; i < length; i++)
+    {
+        if (islower(str) && (isalpha(str)))
+        {
+            char m = str[i];
+            //gets alphabetical index
+             int alpha = (m - 'a');
+            // printf("for alpha: %i \n", alpha);
+            //equation we had to use
+            int a = ((alpha + k) %26);
+            // printf("after equation: %i ", a);
+            if (a == m-m)
+            {
+                printf("%c",m);
+            }
+        }
+
+        if (isupper(str) && (isalpha(str)))
+        {
+            char n = str[i];
+            //alpha index
+            int alph = (n - 'A');
+            // printf("%i", alph);
+            //equation we had to use
+            int b = ((alph + k) %26);
+            // printf("after equation: %i \n", b);
+            if (b == n-n)
+            {
+                printf("%c",n);
+            }
+        }
+
+    }
+    return 0;
+}
