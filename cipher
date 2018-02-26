@@ -40,39 +40,36 @@ int main (int argc, string argv[])
     string str = get_string ("Message:  ");
     int length = strlen(str);
     printf("%i \n",length);
-
     int i = str[0];
-    for (i = 0; i < length; i++)
+
+    for (i = str[i]; i < (length - 1); i++)
     {
-        if (islower(str) && (isalpha(str)))
+        if (isalpha(str))
         {
             char m = str[i];
-            //gets alphabetical index
-             int alpha = (m - 'a');
-            // printf("for alpha: %i \n", alpha);
-            //equation we had to use
-            int a = ((alpha + k) %26);
-            // printf("after equation: %i ", a);
-            if (a == m-m)
+            if (islower(str))
             {
-                printf("%c",m);
+                //gets alphabetical index
+                 int alpha = (m - 'a');
+                // printf("for alpha: %i \n", alpha);
+                //equation we had to use
+                int a = ((alpha + k) %26);
+                // printf("after equation: %i ", a);
+                printf("this is a: %i",a);
+            }
+
+            if (isupper(str))
+            {
+                //alpha index
+                int alph = (m - 'A');
+                // printf("%i", alph);
+                //equation we had to use
+                int b = ((alph + k) %26);
+                // printf("after equation: %i \n", b);
+                printf("this is b:  %i",b);
             }
         }
 
-        if (isupper(str) && (isalpha(str)))
-        {
-            char n = str[i];
-            //alpha index
-            int alph = (n - 'A');
-            // printf("%i", alph);
-            //equation we had to use
-            int b = ((alph + k) %26);
-            // printf("after equation: %i \n", b);
-            if (b == n-n)
-            {
-                printf("%c",n);
-            }
-        }
 
     }
     return 0;
