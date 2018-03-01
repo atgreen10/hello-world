@@ -4,73 +4,36 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-//variable
-int k;
-int q;
-
-
-int main (int argc, string argv[])
+int main(int argc, string argv[])
 {
-    // sets the key for encryption
-    if (argc == 2)
+    //get second argument
+    if (argc != 2)
     {
-        string key = argv[1];
-        printf ("Key: %s\n", key);
-    }
-
-    //quits program with bad input
-    else
-    {
-        printf("Ya done messed up...\n");
+        printf("Ya done did somethin' wrong");
         return 1;
     }
+    //set parameters for key
+    string k = argv[1];
+    int klength = strlen(k);
 
-    // turns key to an integer
-    k = atoi(argv[1]);
-    if (k <= 0)
+    if(isalpha(k))
     {
-        printf("Can Not Be Negative Number");
-    }
-    else
-    {
-        printf("key as int: %i \n", k);
+        printf("key length: %s \n", k);
     }
 
-    //plaintext input and length
-    string str = get_string ("Message:  ");
-    int length = strlen(str);
-    printf("%i \n",length);
-    int i = str[0];
-
-    for (i = str[i]; i < (length - 1); i++)
+    int a;
+    int b;
+    for (int i = 0; i < klength; i++)
     {
-        if (isalpha(str))
+        if(isupper(k))
         {
-            char m = str[i];
-            if (islower(str))
-            {
-                //gets alphabetical index
-                 int alpha = (m - 'a');
-                // printf("for alpha: %i \n", alpha);
-                //equation we had to use
-                int a = ((alpha + k) %26);
-                // printf("after equation: %i ", a);
-                printf("this is a: %i",a);
-            }
-
-            if (isupper(str))
-            {
-                //alpha index
-                int alph = (m - 'A');
-                // printf("%i", alph);
-                //equation we had to use
-                int b = ((alph + k) %26);
-                // printf("after equation: %i \n", b);
-                printf("this is b:  %i",b);
-            }
+            //alpha index for key
+            a = (k[i] - 'A');
+        }
+        if(islower(k))
+        {
+            b = (k[i] - 'a');
         }
 
-
     }
-    return 0;
 }
